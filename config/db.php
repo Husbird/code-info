@@ -7,9 +7,9 @@ return [
     'password' => 'root',
     'charset' => 'utf8',
     
-//    'dsn' => 'mysql:host=lyusi.mysql.tools;dbname=lyusi_codeinfo',
-//    'username' => 'lyusi_codeinfo',
-//    'password' => 'fxp7knp7',
+//    'dsn' => 'mysql:host=lyusi.mysql.tools;dbname=',
+//    'username' => '',
+//    'password' => '',
 //    'charset' => 'utf8',
 
     // Schema cache options (for production environment)
