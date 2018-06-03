@@ -56,7 +56,7 @@ $urlTitle = clearUrlStr($value['title']);
     <p><small style="margin-left: 60%">от: <?= ($value['date_add']) ? date("m.d.Y", $value['date_add']) : 'не установлено' ;?></small></p>
 <!--    <p><?php // echo substr($value['description'], 0, 400); ?></p>-->
     <p><?= $value['description'] ?></p>
-    <p><a class="btn btn-primary" href="<?= yii\helpers\Url::to(['article/view',
+    <p><a href="<?= yii\helpers\Url::to(['article/view',
         'title' => $urlTitle,
         'id' => $value['id'],
         ]) ?>">Читать... &raquo;</a></p>
