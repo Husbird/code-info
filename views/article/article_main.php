@@ -6,7 +6,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="row"> <!-- row 1 begins -->
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <ul class="vert_menu" style="list-style-type:none; border: 1px solid #f6f6f6; padding-left: 5px;">
             <?= \app\components\MenuMsWidget::widget(['tpl' => 'vert_menu']); ?>
         </ul>
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>  
         </form>-->
     </div>
-    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
     <div style="text-align: center;">
         <h1><?= $article_page['title']?></h1>
     </div>
@@ -47,7 +47,7 @@ foreach ($articles as $value):
 $urlTitle = clearUrlStr($value['title']);
 $i++;
 ?>
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <h2 style="font-size: 16px; font-weight: bold;"><?= $value['title'] ?></h2>
     <a href="<?= yii\helpers\Url::to(['article/view',
         'title' => $urlTitle,

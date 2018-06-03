@@ -8,11 +8,8 @@ $this->params['breadcrumbs'][] = ['label' => 'Разделы статей', 'url
 $this->params['breadcrumbs'][] = Yii::$app->formatter->asHtml($this->title);
 ?>
 
-<div class="row space30"> <!-- row 1 begins -->
-    <div style="text-align: center;">
-        <h1><?= $category->title?></h1>
-    </div>
-    <div class="col-md-3">
+<div class="row"> <!-- row 1 begins -->
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <ul class="vert_menu" style="list-style-type:none; border: 1px solid #f6f6f6; padding-left: 5px;">
             <?= \app\components\MenuMsWidget::widget(['tpl' => 'vert_menu']); ?>
         </ul>
@@ -28,26 +25,20 @@ $this->params['breadcrumbs'][] = Yii::$app->formatter->asHtml($this->title);
                 </form>
             </div>
         </div>
-<!--        <form class="navbar-form navbar-search" role="search">
-            <div class="input-group">
-                <input type="text" class="form-control">
-                <div class="input-group-btn">
-                    <button type="button" class="btn btn-search btn-info">
-                        <span class="glyphicon glyphicon-search"></span>
-                        <span class="label-icon">Search</span>
-                    </button>
-                </div>
-            </div>  
-        </form>-->
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    <div style="text-align: center;">
+        <h1><?= $category->title?></h1>
     </div>
 <?php
 //debug($parts); $value['title']
+$i = 0;
 foreach ($articles as $value):
 // замена пробелов в названии (для ЧПУ)
 //$hfuArticleTitle = str_replace ( ' ' , '_' , $value['title'] );
 $urlTitle = clearUrlStr($value['title']);
 ?>
-<div class="col-md-3">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <h2 style="font-size: 16px; font-weight: bold;"><?= $value['title'] ?></h2>
     <?php echo Html::img( '@web/upload/global/article/' . $value['id'] . '/000.jpg', [ 
         'alt' => $value['title'],
@@ -61,8 +52,18 @@ $urlTitle = clearUrlStr($value['title']);
         'id' => $value['id'],
         ]) ?>">Читать... &raquo;</a></p>
 </div>
+        
+<?php 
+//debug($i);
+if ($i === 3 || $i === 6 || $i === 9 || $i === 12) {
+    echo '<div class="clearfix"></div>';
+}
+?>
+        
 <?php endforeach; ?>
+        
 <div class="clearfix"></div>
+
 <?php
     if (!$articles) { 
         echo "<h2>Нет статей...</h2>";
@@ -73,7 +74,6 @@ $urlTitle = clearUrlStr($value['title']);
     }
     //debug($articles);
 ?>
-</div> <!-- /row 1 -->
 
 <!--<a href="<?= yii\helpers\Url::to([
         'category/view', 
@@ -86,3 +86,5 @@ $urlTitle = clearUrlStr($value['title']);
             <span  style="font-weight: bold; float: right; margin-right: 10px;">+</span>
         <?php endif; ?>
     </a>-->
+    </div>
+</div> <!-- /row 1 -->
