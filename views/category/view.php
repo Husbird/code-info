@@ -40,12 +40,17 @@ $urlTitle = clearUrlStr($value['title']);
 ?>
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <h2 style="font-size: 16px; font-weight: bold;"><?= $value['title'] ?></h2>
-    <?php echo Html::img( '@web/upload/global/article/' . $value['id'] . '/000.jpg', [ 
+    <a href="<?= yii\helpers\Url::to(['article/view',
+        'title' => $urlTitle,
+        'id' => $value['id'],
+        ]) ?>">
+        <?= Html::img( '@web/upload/global/article/' . $value['id'] . '/000.jpg', [ 
         'alt' => $value['title'],
-        'class' => 'img-responsive img-rounded img_left'
+        'class' => 'img-responsive img-rounded'
         ] )?>
-    <p><small style="margin-left: 60%">от: <?= ($value['date_add']) ? date("m.d.Y", $value['date_add']) : 'не установлено' ;?></small></p>
-<!--    <p><?php // echo substr($value['description'], 0, 400); ?></p>-->
+    </a>
+    <!--<p><small style="margin-left: 60%">от: <?php //echo ($value['date_add']) ? date("m.d.Y", $value['date_add']) : 'не установлено' ;?></small></p>-->
+<!--<p><?php // echo substr($value['description'], 0, 400); ?></p>-->
     <p><?= $value['description'] ?></p>
     <p><a href="<?= yii\helpers\Url::to(['article/view',
         'title' => $urlTitle,
