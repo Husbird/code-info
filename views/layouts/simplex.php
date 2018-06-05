@@ -9,10 +9,10 @@ use yii\helpers\Html;
 //use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAssetSimplex;
-use app\assets\AppAssetSimplex_lt;
+//use app\assets\AppAssetSimplex_lt;
 
 AppAssetSimplex::register($this);
-AppAssetSimplex_lt::register($this);
+//AppAssetSimplex_lt::register($this);
 ?>
 
 <?php $this->beginPage() ?>
@@ -28,6 +28,26 @@ AppAssetSimplex_lt::register($this);
 //        $this->registerJsFile('js/simplex/html5shiv.js',
 //           ['position' => \yii\web\View::POS_HEAD, 'condition' => 'lte IE9']);
     ?>
+    
+    <?php
+    // кнопка "вверх" <!-- Starting the plugin -->
+    $js_to_top_button = <<<JS
+        //$(document).ready(function() {
+        /*
+         var defaults = {
+         containerID: 'toTop', // fading element id
+         containerHoverID: 'toTopHover', // fading element hover id
+         scrollSpeed: 1200,
+         easingType: 'linear'
+         };
+         */
+        $().UItoTop({ easingType: 'easeOutQuart' });
+       //});
+JS;
+    $this->registerJs($js_to_top_button, \yii\web\View::POS_LOAD); 
+    //<!--UItoTop jQuery Plugin 1.2 END-->
+    ?>
+    
     <?php $this->head() ?>
   </head>
 
