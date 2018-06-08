@@ -37,7 +37,8 @@ class ArticleController extends AppAdminController
      */
     public function actionIndex()
     {
-
+        $this->admin_check();
+        
         $dataProvider = new ActiveDataProvider([
             'query' => Article::find()->with('articleCategory'),
             'pagination' => [
@@ -70,6 +71,8 @@ class ArticleController extends AppAdminController
      */
     public function actionView($id)
     {
+        $this->admin_check();
+        
         return $this->render('view', [
             //'model' => $this->findModel($id),
             'model' => Article::find()->with('articleCategory')
@@ -86,6 +89,8 @@ class ArticleController extends AppAdminController
      */
     public function actionCreate()
     {
+        $this->admin_check();
+        
         $model = new Article();
 //        if ( $model->load( Yii::$app->request->post()) ) {
 //            $x = $model->save();
@@ -129,6 +134,8 @@ class ArticleController extends AppAdminController
      */
     public function actionUpdate($id)
     {
+        $this->admin_check();
+        
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -160,6 +167,8 @@ class ArticleController extends AppAdminController
      */
     public function actionDelete($id)
     {
+        $this->admin_check();
+        
         $dir_path = './upload/global/article/'.$id.'/';
         
         if ( true === $this->findModel($id)->drop_dir($dir_path) ) {
@@ -181,6 +190,8 @@ class ArticleController extends AppAdminController
      */
     protected function findModel($id)
     {
+        $this->admin_check();
+        
         if (($model = Article::findOne($id)) !== null) {
             return $model;
         }
