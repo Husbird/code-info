@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * CategoryController implements the CRUD actions for ArticleCat model.
  */
-class CategoryController extends Controller
+class CategoryController extends AppAdminController
 {
     /**
      * @inheritdoc
@@ -35,6 +35,8 @@ class CategoryController extends Controller
      */
     public function actionIndex()
     {
+        $this->admin_check();
+        
         $dataProvider = new ActiveDataProvider([
 //            'query' => ArticleCat::find(), // ЛЕНИВАЯ ЗАГРУЗКА!!!
             'query' => ArticleCat::find()->with('category'), // ЖАДНАЯ ЗАГРУЗКА!!!
@@ -53,6 +55,8 @@ class CategoryController extends Controller
      */
     public function actionView($id)
     {
+        $this->admin_check();
+        
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -65,6 +69,8 @@ class CategoryController extends Controller
      */
     public function actionCreate()
     {
+        $this->admin_check();
+        
         $model = new ArticleCat();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -87,6 +93,8 @@ class CategoryController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->admin_check();
+        
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -107,6 +115,8 @@ class CategoryController extends Controller
      */
     public function actionDelete($id)
     {
+        $this->admin_check();
+        
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -121,6 +131,8 @@ class CategoryController extends Controller
      */
     protected function findModel($id)
     {
+        $this->admin_check();
+        
         if (($model = ArticleCat::findOne($id)) !== null) {
             return $model;
         }

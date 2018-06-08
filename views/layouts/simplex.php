@@ -68,8 +68,8 @@ JS;
             
             <?php 
             if (Yii::$app->user->isGuest) {
-                echo '<li>' . Html::a( 'Вход', ['/site/login'] ) . '</li>';
                 echo '<li>' . Html::a( 'Регистрация', ['/site/signup'] ) . '</li>';
+                echo '<li>' . Html::a( 'Вход', ['/site/login'] ) . '</li>';
             } elseif (!Yii::$app->user->isGuest && Yii::$app->user->identity->adm_mss >= 2) {
                 echo '<li>' . Html::a( 'Админка' , ['/admin'] ) . '</li>';
                 echo '<li>' . Html::a( 'Выход (' . Yii::$app->user->identity->name . ')' , ['/site/logout'] )  . '</li>';

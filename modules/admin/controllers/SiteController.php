@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * SiteController implements the CRUD actions for Site model.
  */
-class SiteController extends Controller
+class SiteController extends AppAdminController
 {
     /**
      * @inheritdoc
@@ -35,6 +35,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->admin_check();
+        
         $dataProvider = new ActiveDataProvider([
             'query' => Site::find(),
         ]);
@@ -52,6 +54,8 @@ class SiteController extends Controller
      */
     public function actionView($id)
     {
+        $this->admin_check();
+        
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -64,6 +68,8 @@ class SiteController extends Controller
      */
     public function actionCreate()
     {
+        $this->admin_check();
+        
         $model = new Site();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -84,6 +90,8 @@ class SiteController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->admin_check();
+        
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -104,6 +112,8 @@ class SiteController extends Controller
      */
     public function actionDelete($id)
     {
+        $this->admin_check();
+        
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -118,6 +128,8 @@ class SiteController extends Controller
      */
     protected function findModel($id)
     {
+        $this->admin_check();
+        
         if (($model = Site::findOne($id)) !== null) {
             return $model;
         }
