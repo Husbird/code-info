@@ -4,13 +4,19 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
+//use yii\web\Controller;
+use app\controllers\AppController;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Site;
+use app\models\Signup;
+use app\models\User;
 //use app\models\Article_part;
+use yii\helpers\Html; //исп. в signup
+
+//use yii\base\Model;
 
 class SiteController extends AppController
 {
@@ -159,7 +165,7 @@ class SiteController extends AppController
 //        Загружаем в неё данные $model->load() и вызываем метод login - $model->login()
 //        метод login - авторизует пользователя
 //        проверяем, если данные пользователя загружены и метод login вернул true
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        if ( $model->load(Yii::$app->request->post()) && $model->login() ) {
 //            редиректим туда, откуда пришел пользователь
             return $this->goBack();
         }
@@ -184,6 +190,57 @@ class SiteController extends AppController
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+    
+    /**
+     * Displays registration page.
+     *
+     * @return Response|string
+     */
+    public function actionSignup() 
+    {
+//        Проверка, не является ли пользователь гостем?
+        if (!Yii::$app->user->isGuest) {
+//          Если не гость - отправляем на главную страницу
+            return $this->goHome();
+        }
+        
+        $model = new Signup();
+
+        // принимаем код из ссылки:
+        if ( isset($_GET['hash']) ) {
+            $hash = Html::encode(trim( Yii::$app->request->get('hash')) );
+            $add_new_user = $model->check_and_save_user($hash);
+            //если пользователь успешно добавлен - логиним его:
+            if (false !== $add_new_user) {
+                Yii::$app->session->setFlash('userSuccessRegistred');
+                Yii::$app->user->login($add_new_user);
+                return $this->goHome();
+            } else {
+                Yii::$app->session->setFlash('userErrorRegistred');
+                return $this->goHome();
+            }
+        }
+        
+        
+        if ( isset($_POST['Signup']) ) {
+//            debug($_POST['Signup']);
+            $model->attributes = Yii::$app->request->post('Signup');
+            
+            if ($model->validate()) {
+                //debug($model->email); die();
+                if ( true === $model->store_registr_data() ) {
+                    Yii::$app->session->setFlash('checkMailSended');
+                    return $this->refresh();
+                } else {
+                    Yii::$app->session->setFlash('checkMailError');
+                    return $this->render( 'signup', compact('model') );
+                }
+            }
+        }
+        
+        return $this->render( 'signup', compact('model') );
+        
     }
 
     /**

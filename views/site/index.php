@@ -57,6 +57,21 @@ JS;
 
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0px 10px 0px 10px;" >
 <!--    <h1><?= Html::encode($this->title) ?></h1>-->
+    
+    <?php if (Yii::$app->session->hasFlash('userSuccessRegistred')):?>
+    <div class="alert alert-success">
+        <strong>Проздравляем!</strong> <br>
+        Вы успешно зарегистрированы!
+    </div>
+    <?php endif; ?>
+    
+    <?php if (Yii::$app->session->hasFlash('userErrorRegistred')):?>
+    <div class="alert alert-danger">
+        <strong>Ошибка!</strong> <br>
+        К сожалению, регистрация завершилась неудачей =(!
+    </div>
+    <?php endif; ?>
+    
     <?= $page_content['text'] ?>
     <?php
     //echo $page_content['title'];
