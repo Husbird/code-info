@@ -52,7 +52,11 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'name' => 'Ваше имя:',
+            'email' => 'Ваш e-mail (для ответа):',
+            'subject' => 'Тема:',
+            'body' => 'Текст:',
+            'verifyCode' => 'Проверочный код:',
         ];
     }
 
@@ -67,9 +71,10 @@ class ContactForm extends Model
         if ($this->validate()) {
             Yii::$app->mailer->compose()
                 ->setTo($email)
-                ->setFrom([$this->email => $this->name])
+                //->setFrom([$this->email => $this->name])
+                ->setFrom('no-reply@code-info.ru')
                 ->setSubject($this->subject)
-                ->setTextBody($this->body)
+                ->setTextBody($this->body."***(сообщение от: ".$this->email." имя: ".$this->name.")***")
                 ->send();
 
             return true;

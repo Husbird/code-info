@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             Спасибо что связались с нами. Мы постараемся ответить Вам как можно быстрее.
         </div>
 
-        <p>
+<!--        <p>
             Note that if you turn on the Yii debugger, you should be able
             to view the mail message on the mail panel of the debugger.
             <?php if (Yii::$app->mailer->useFileTransport): ?>
@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 Please configure the <code>useFileTransport</code> property of the <code>mail</code>
                 application component to be false to enable email sending.
             <?php endif; ?>
-        </p>
+        </p>-->
 
     <?php else: // если флеш сообщение не получено, то выводим содержимое ниже?>
 
@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ]) ?>
 
                     <div class="form-group">
-                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                        <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
                     </div>
 
                 <?php ActiveForm::end(); ?>

@@ -13,6 +13,9 @@ class Module extends \yii\base\Module
      * @inheritdoc
      */
     public $controllerNamespace = 'app\modules\admin\controllers';
+    
+    // вариант подключения шаблона в модуль
+//    public $layout = 'admin';
 
     /**
      * @inheritdoc

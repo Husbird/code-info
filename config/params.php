@@ -1,6 +1,7 @@
 <?php
 
 return [
-    'adminEmail' => 'info@code-info.ru',
-    'site_name' => 'code-info.loc',
+//    'adminEmail' => 'moskaleny@gmail.com',
+    'adminEmail' => 'ms-projects@mail.ru',
+    'site_name' => 'code-info.ru',
 ];

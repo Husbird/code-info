@@ -1,7 +1,8 @@
-<h1>Registration</h1>
+<h1>Регистрация</h1>
 <?php
 
 use yii\widgets\ActiveForm;
+use yii\captcha\Captcha;
 /* 
  * Registration page
  */
@@ -21,6 +22,8 @@ use yii\widgets\ActiveForm;
 </div>
 <?php else: // если флеш сообщение не получено, то выводим содержимое ниже?>
 
+<div class="row">
+    <div class="col-lg-5">
 <?php
 $form = ActiveForm::begin(['class'=>'form-horisontal']);
 ?>
@@ -32,11 +35,16 @@ $form = ActiveForm::begin(['class'=>'form-horisontal']);
 <?= $form->field($model,'pass')->passwordInput() ?>
 
 <?= $form->field($model,'pass_repeat')->passwordInput() ?>
-<div>
+
+<?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+]) ?>
+<div class="form-group">
     <button type="submit" class="btn btn-primary">Отправить</button>
 </div>
 <?php
 ActiveForm::end();
 ?>
-
+    </div>
+</div>
 <?php endif; ?>

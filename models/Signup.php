@@ -11,6 +11,7 @@ class Signup extends Model
     public $email;
     public $pass;
     public $pass_repeat;
+    public $verifyCode;
     
     const HASH_FILE_PATH = "registr_hash.txt";
     const EMAIL_LINK_LIFE_TIME = 48; // актуальность регистрационной ссылки (часов)
@@ -24,6 +25,8 @@ class Signup extends Model
             ['pass', 'string', 'min'=>5, 'max'=>10],
             ['pass_repeat', 'string', 'min'=>5, 'max'=>10],
             ['pass_repeat', 'compare', 'compareAttribute' => 'pass', 'message' => 'Введённый вами пароль - не совпадает с введённым паролем в поле "Повтор пароля"'],
+            // verifyCode needs to be entered correctly
+            ['verifyCode', 'captcha'],
         ];
     }
     
@@ -32,7 +35,8 @@ class Signup extends Model
             'name' => 'Ваше имя',
             'email' => 'E-mail',
             'pass' => 'Пароль',
-            'pass_repeat' => 'Повтор пароля'
+            'pass_repeat' => 'Повтор пароля',
+            'verifyCode' => 'Проверочный код:',
         ];
     }
     
@@ -46,7 +50,8 @@ class Signup extends Model
 
         Yii::$app->mailer->compose()
         ->setTo($this->email)
-        ->setFrom([Yii::$app->params['adminEmail']])
+        ->setFrom('no-reply@'.Yii::$app->params['site_name'].'')
+//        ->setFrom([Yii::$app->params['adminEmail']])
         ->setSubject("Регистрация на сайте ".Yii::$app->params['site_name']."")
         ->setTextBody("<p>"
             . "Для завершения регистрации, перейдите по следующей ссылке:<br>"
@@ -110,7 +115,7 @@ class Signup extends Model
 //                  Отправка письма юзеру с его логином и паролем:
                     Yii::$app->mailer->compose()
                     ->setTo($user->email)
-                    ->setFrom([Yii::$app->params['adminEmail']])
+                    ->setFrom('no-reply@'.Yii::$app->params['site_name'].'')
                     ->setSubject("Итог регистрации на сайте ".Yii::$app->params['site_name']."")
                     ->setTextBody("<p>"
                         . "Поздравляем, ".$user->name."!<br>"

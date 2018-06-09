@@ -40,3 +40,6 @@ _htaccess
 
 #
 /web/upload/global/*
+
+#фаил с хешами и регистрационными данными регистрирующихся пользователей
+web/registr_hash.txt
