@@ -3,6 +3,7 @@
 
 use yii\widgets\ActiveForm;
 use yii\captcha\Captcha;
+use yii\helpers\Html;
 /* 
  * Registration page
  */
@@ -26,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php else: // если флеш сообщение не получено, то выводим содержимое ниже?>
 
 <div class="row">
-    <div class="col-lg-5">
+    <div class="col-lg-5 d-sm-none">
 <?php
 $form = ActiveForm::begin(['class'=>'form-horisontal']);
 ?>
@@ -48,6 +49,16 @@ $form = ActiveForm::begin(['class'=>'form-horisontal']);
 <?php
 ActiveForm::end();
 ?>
+    </div>
+    
+    <div class="col-lg-7">
+        <figure>
+        <?= Html::img( '@web/images/signup.png', [ 
+            'alt' => 'Страница регистрации',
+            'class' => 'img-responsive img-rounded'
+            ] )
+        ?>
+        </figure>
     </div>
 </div>
 <?php endif; ?>

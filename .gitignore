@@ -36,7 +36,7 @@ tests/_support/_generated
 _htaccess
 
 # 
-/web/images/*
+/web/images/article_cat
 
 #
 /web/upload/global/*
