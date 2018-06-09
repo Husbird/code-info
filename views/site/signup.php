@@ -6,6 +6,9 @@ use yii\captcha\Captcha;
 /* 
  * Registration page
  */
+
+$this->title = 'Страница регистрации';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?php if (Yii::$app->session->hasFlash('checkMailError')): //если получено флеш сообщение об ошибке:?>
