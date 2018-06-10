@@ -6,22 +6,22 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="row"> <!-- row 1 begins -->
+    <div id="custom-search-input" class="hidden-lg hidden-md col-sm-12 col-xs-12">
+        <div class="input-group col-md-12">
+            <form method="GET" action="<?= \yii\helpers\Url::to(['category/search']); ?>" class="navbar-form navbar-search" role="search">
+                <div class="input-group-btn">
+                    <input type="text" class="search-query form-control" name="q" required="" placeholder="Найти..." />
+                    <button class="btn btn-danger" type="submit">
+                        <span class=" glyphicon glyphicon-search"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-        <ul class="vert_menu" style="list-style-type:none; border: 1px solid #f6f6f6; padding-left: 5px;">
+        <ul class="vert_menu">
             <?= \app\components\MenuMsWidget::widget(['tpl' => 'vert_menu']); ?>
         </ul>
-        <div id="custom-search-input">
-            <div class="input-group col-md-12">
-                <form method="GET" action="<?= \yii\helpers\Url::to(['category/search']); ?>" class="navbar-form navbar-search" role="search">
-                    <div class="input-group-btn">
-                        <input type="text" class="search-query form-control" name="q" required="" placeholder="Найти..." />
-                        <button class="btn btn-danger" type="submit">
-                            <span class=" glyphicon glyphicon-search"></span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
 <!--        <form class="navbar-form navbar-search" role="search">
             <div class="input-group">
                 <input type="text" class="form-control">

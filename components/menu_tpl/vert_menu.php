@@ -2,7 +2,7 @@
 // замена пробелов в названии (для ЧПУ)
 //$hfuCategoryTitle = str_replace ( ' ' , '_' , $category['title'] );
 ?>
-<li style="padding: 5px 0px 5px 10px">
+<li style="padding: 10px 0px 0px 0px">
     <a href="<?= yii\helpers\Url::to([
         'category/view', 
         'title' => clearUrlStr($category['title']),

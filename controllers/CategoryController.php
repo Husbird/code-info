@@ -27,7 +27,10 @@ class CategoryController extends AppController {
 //                ->orderBy( ['id' => SORT_DESC] )
 //                ->all();
 //        Пагинация:
-        $query = Article::find()->where(['category_id' => $id]);
+        $query = Article::find()
+                ->orderBy( ['id' => SORT_DESC] )
+                ->where(['category_id' => $id]);
+                
         $pages = new Pagination([
             'totalCount' => $query->count(),
             'pageSize' => 9,

@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = Yii::$app->formatter->asHtml("Поиск по �
     </div>
     <?php if( !empty($articles) ):?>
     <div style="text-align: center;">
-        <h1><?= $category->title?></h1>
+<!--        <h1><?php //echo $category->title?></h1>-->
     </div>
     <div class="col-md-3">
         <ul class="vert_menu" style="list-style-type:none; border: 1px solid #f6f6f6; padding-left: 5px;">
