@@ -18,7 +18,7 @@
 }
 @import url('https://fonts.googleapis.com/css?family=Anton|Roboto');
 
-/*Блок с надписью*/
+/*Блок с анимацией (надписью)*/
 .word {
     font-family: 'Anton', sans-serif;
 /*    perspective: 1000px; 

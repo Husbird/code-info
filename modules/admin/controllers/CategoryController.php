@@ -35,7 +35,12 @@ class CategoryController extends AppAdminController
      */
     public function actionIndex()
     {
-        $this->admin_check();
+        // только АДМИНУ (временное решение)
+        if ( (Yii::$app->user->isGuest ) || (Yii::$app->user->identity->adm_mss < 4) ) {
+//            $model = new LoginForm();
+            header('location:/site/login');
+            exit();
+        }
         
         $dataProvider = new ActiveDataProvider([
 //            'query' => ArticleCat::find(), // ЛЕНИВАЯ ЗАГРУЗКА!!!
@@ -55,7 +60,12 @@ class CategoryController extends AppAdminController
      */
     public function actionView($id)
     {
-        $this->admin_check();
+        // только АДМИНУ (временное решение)
+        if ( (Yii::$app->user->isGuest ) || (Yii::$app->user->identity->adm_mss < 4) ) {
+//            $model = new LoginForm();
+            header('location:/site/login');
+            exit();
+        }
         
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -69,7 +79,12 @@ class CategoryController extends AppAdminController
      */
     public function actionCreate()
     {
-        $this->admin_check();
+        // только АДМИНУ (временное решение)
+        if ( (Yii::$app->user->isGuest ) || (Yii::$app->user->identity->adm_mss < 4) ) {
+//            $model = new LoginForm();
+            header('location:/site/login');
+            exit();
+        }
         
         $model = new ArticleCat();
 
@@ -93,7 +108,12 @@ class CategoryController extends AppAdminController
      */
     public function actionUpdate($id)
     {
-        $this->admin_check();
+        // только АДМИНУ (временное решение)
+        if ( (Yii::$app->user->isGuest ) || (Yii::$app->user->identity->adm_mss < 4) ) {
+//            $model = new LoginForm();
+            header('location:/site/login');
+            exit();
+        }
         
         $model = $this->findModel($id);
 
@@ -115,7 +135,12 @@ class CategoryController extends AppAdminController
      */
     public function actionDelete($id)
     {
-        $this->admin_check();
+        // только АДМИНУ (временное решение)
+        if ( (Yii::$app->user->isGuest ) || (Yii::$app->user->identity->adm_mss < 4) ) {
+//            $model = new LoginForm();
+            header('location:/site/login');
+            exit();
+        }
         
         $this->findModel($id)->delete();
 
@@ -131,7 +156,12 @@ class CategoryController extends AppAdminController
      */
     protected function findModel($id)
     {
-        $this->admin_check();
+        // только АДМИНУ (временное решение)
+        if ( (Yii::$app->user->isGuest ) || (Yii::$app->user->identity->adm_mss < 4) ) {
+//            $model = new LoginForm();
+            header('location:/site/login');
+            exit();
+        }
         
         if (($model = ArticleCat::findOne($id)) !== null) {
             return $model;
