@@ -97,6 +97,8 @@ class SiteController extends AppController
     // параметры в екшене - переменные из GET запроса
     public function actionIndex($getVar1 = null, $getVar2 = null)
     {
+        $this->menu_main_active = 'active';
+//        $this->menu_main_active = 'menu_active_ms';
         /*
         подключение шаблона локально (только для текущего Action!)
         $this->layout = 'simplex';
@@ -122,7 +124,7 @@ class SiteController extends AppController
                 ->limit(1)
                 ->asArray()
                 ->one();
-        if( empty($page_content) ) {
+        if ( empty($page_content) ) {
             throw new \yii\web\HttpException(404, 'Такой статьи нет');
         }
         //debug($page_content['title']);
@@ -139,7 +141,6 @@ class SiteController extends AppController
         // Вызываем вид и передаём в него переменные (2 способа)
         //$test = "Hello World";
         //$test2 = "Hello World2";
-        $this->menu_main_active = 'active';
         // переменные будут доступны из вида по именам var1 и var2
         //return $this->render('index', ['var1' => $test, 'var2' => $test2]);
         // переменные будут доступны из вида по именам test и test2
@@ -153,6 +154,8 @@ class SiteController extends AppController
      */
     public function actionLogin()
     {
+//        $this->menu_login_active = 'menu_active_ms';
+        $this->menu_login_active = 'active';
         //echo Yii::$app->getSecurity()->generatePasswordHash('10510560');die; 7k)9(Dj9WAl^@aY%j&e@p1,
         //echo Yii::$app->getSecurity()->generatePasswordHash('7k)9(Dj9WAl^@aY%j&e@p1,');die;
 //        Проверка, не является ли пользователь гостем?
@@ -199,6 +202,7 @@ class SiteController extends AppController
      */
     public function actionSignup() 
     {
+        $this->menu_signup_active = 'active';
 //        Проверка, не является ли пользователь гостем?
         if (!Yii::$app->user->isGuest) {
 //          Если не гость - отправляем на главную страницу
@@ -254,6 +258,7 @@ class SiteController extends AppController
         $model = new ContactForm();
         
         $this->menu_contact_active = 'active';
+//        $this->menu_contact_active = 'menu_active_ms';
         
         // загрузка полученных данных в модель формы
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {

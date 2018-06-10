@@ -21,8 +21,9 @@ class AppAssetSimplex extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/simplex/templatemo_justified.css',
-        'css/simplex/article.css',
         'css/simplex/header.css',
+        'css/simplex/main_menu.css',
+        'css/simplex/article.css',
         // UItoTop jQuery Plugin 1.2:
         'css/simplex/ui.totop.css',
     ];

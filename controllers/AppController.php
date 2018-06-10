@@ -12,6 +12,8 @@ class AppController extends Controller {
     public $menu_contact_active = '';
     public $menu_about_active = '';
     public $menu_article_active = '';
+    public $menu_signup_active = '';
+    public $menu_login_active = '';
     
     protected function setMeta($title = null, $keywords = null, $description = null) {
         $this->view->title = $title;

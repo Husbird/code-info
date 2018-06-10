@@ -6,9 +6,15 @@
 .header {
     width:100%; 
     height: 100px;  
-    background-image: url(/images/header_code_info3.jpg);
+    background-image: url(/images/header_code_info3.png);
     background-size: 100%; /* Масштабируем фон */
     background-repeat: no-repeat;
+    /* Permalink - use to edit and share this gradient */
+    background-color: #e0f3fa; /* Old browsers */
+    background-color: -moz-linear-gradient(top, #e0f3fa 0%, #d8f0fc 13%, #b8e2f6 70%, #b6dffd 100%); /* FF3.6-15 */
+    background-color: -webkit-linear-gradient(top, #e0f3fa 0%,#d8f0fc 13%,#b8e2f6 70%,#b6dffd 100%); /* Chrome10-25,Safari5.1-6 */
+    background-color: linear-gradient(to bottom, #e0f3fa 0%,#d8f0fc 13%,#b8e2f6 70%,#b6dffd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0f3fa', endColorstr='#b6dffd',GradientType=0 ); /* IE6-9 */
 }
 @import url('https://fonts.googleapis.com/css?family=Anton|Roboto');
 

@@ -69,6 +69,7 @@ class ArticleController extends AppController {
     public function actionArticleMain() {
         
         $this->menu_article_active = 'active';
+//        $this->menu_article_active = 'menu_active_ms';
         
         $this->view->title = 'Разделы статей';
 
