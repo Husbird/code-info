@@ -21,6 +21,7 @@ class AppAssetSimplex extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/simplex/templatemo_justified.css',
+        'css/simplex/main_style.css',
         'css/simplex/header.css',
         'css/simplex/main_menu.css',
         'css/simplex/article.css',
