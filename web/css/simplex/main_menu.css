@@ -32,17 +32,16 @@
 .navbar-default .navbar-nav > .active > a, 
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
-    /*color: #d1ffed;*/
-    color:#333;
-    border-bottom: 2px solid red;
-    /*background-color: #27ae60;*/
-    /*background-image: linear-gradient( #CDE7B7,#6AA33A );*/
-/* Permalink - use to edit and share this gradient */
+color:#333;
+//border-bottom: 1px solid red;
+/*background-color: #27ae60;*/
+/*background-image: linear-gradient( #CDE7B7,#6AA33A );*/
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e0f3fa+0,daedf4+28,6ea63e+75 */
 background: #e0f3fa; /* Old browsers */
-background: -moz-linear-gradient(top, #e0f3fa 0%, #d8f0fc 13%, #b8e2f6 70%, #b6dffd 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, #e0f3fa 0%,#d8f0fc 13%,#b8e2f6 70%,#b6dffd 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, #e0f3fa 0%,#d8f0fc 13%,#b8e2f6 70%,#b6dffd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0f3fa', endColorstr='#b6dffd',GradientType=0 ); /* IE6-9 */
+background: -moz-linear-gradient(top, #e0f3fa 0%, #daedf4 28%, #6ea63e 75%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #e0f3fa 0%,#daedf4 28%,#6ea63e 75%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #e0f3fa 0%,#daedf4 28%,#6ea63e 75%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0f3fa', endColorstr='#6ea63e',GradientType=0 ); /* IE6-9 */
 }
 /* Цвет и фон открытого пункта меню, а также поднесении к нему курсора мышки или при его нахождении в фокусе */
 .navbar-default .navbar-nav > .open > a, 

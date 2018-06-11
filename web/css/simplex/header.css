@@ -24,13 +24,13 @@
 /*    perspective: 1000px; 
     perspective-origin: 200px 40px;*/
     margin-top: 6%;
-    margin-left: 22%;
+    /*margin-left: 1%;*/
 }
 
 .word span {
     cursor: pointer;
     display: inline-block;
-    font-size: 23px;
+    font-size: 20px;
     user-select: none;
     line-height: .8;
 }

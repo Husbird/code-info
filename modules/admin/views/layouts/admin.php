@@ -34,9 +34,9 @@ AppAssetSimplex_lt::register($this);
   <body>
     <?php $this->beginBody() ?>
     <div id="container" class="container">
-        <div style="width:100%; height: 200px;  background-image: url(/images/header_code_info2.jpg);">
+<!--        <div style="width:100%; height: 50px;  background-image: url(/images/header_code_info2.jpg);">
             <span class="header_title">Code-info.ru</span>
-        </div>
+        </div>-->
         
         <ul class="nav nav-justified">
             <li class=""><a href="<?= \yii\helpers\Url::home()?>">Выход из админки</a> <?php // echo Html::a( 'Главная', '/' )?>
